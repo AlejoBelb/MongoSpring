@@ -1,0 +1,81 @@
+# Crear una persona
+curl -location POST http://localhost:8080/api/person -H "Content-Type: application/json" -d '{
+    "dni": "1100586480",
+    "firstName": "Carlos",
+    "lastName": "Martínez",
+    "age": 35,
+    "address": "Calle 123, Bogotá",
+    "emailAddress": "carlos.martinez@example.com",
+    "cellNumber": 3001234567,
+    "createAt": null
+}'
+
+# Actualizar nombre y apellido
+curl -location PUT http://localhost:8080/api/person -H "Content-Type: application/json" -d '{
+  "id": "661c2e18f474b976ad17ba1f",
+  "dni": "1100586480",
+  "firstName": "Carlos",
+  "lastName": "Gamboa",
+  "age": 35,
+  "address": "Calle 123, Bogotá",
+  "emailAddress": "carlos.martinez@example.com",
+  "cellNumber": 3001234567,
+  "createAt": null
+}'
+
+# Actualizar parcialmente
+curl -location PUT http://localhost:8080/api/person/PartialUpdate -H "Content-Type: application/json" -d '{
+  "id": "661c2e18f474b976ad17ba1f",
+  "fieldsToUpdate": {
+    "firstName": "Carlos",
+    "lastName": "Gamboa"
+  }
+}'
+
+# Búsqueda parcial
+curl -location GET http://localhost:8080/api/person/Search -H "Content-Type: application/json" -d '{
+  "criteria": "Gam",
+  "field": "lastName"
+}'
+
+# Buscar por ID
+curl -location GET http://localhost:8080/person/1100586480 -H "Accept: application/json"
+
+# Eliminar una persona
+curl -location DELETE http://localhost:8080/api/person -H "Content-Type: application/json" -d '{
+    "dni": "1100586480",
+    "firstName": "Carlos",
+    "lastName": "Martínez",
+    "age": 35,
+    "address": "Calle 123, Bogotá",
+    "emailAddress": "carlos.martinez@example.com",
+    "cellNumber": 3001234567,
+    "createAt": null
+}'
+
+# Actualizar Dirección
+curl -location PUT http://localhost:8080/api/person/Address -H "Content-Type: application/json" -d '{
+    "dni": "1100586480",
+    "firstName": "Carlos",
+    "lastName": "Martínez",
+    "age": 35,
+    "address": "Carrera 45 #10-20, Bogotá",
+    "emailAddress": "carlos.martinez@example.com",
+    "cellNumber": 3001234567,
+    "createAt": null
+}'
+
+# Actualizar Correo
+curl -location PUT http://localhost:8080/api/person/Email -H "Content-Type: application/json" -d '{
+    "id": "673a6d62d346a3674ef83994",
+    "dni": "1100586480",
+    "firstName": "Carlos",
+    "lastName": "Martínez",
+    "age": 35,
+    "address": "Calle 123, Bogotá",
+    "emailAddress": "carlos.martinez@example.com",
+    "cellNumber": 3001234567,
+    "createAt": "2024-11-17T22:25:38.709Z"
+}'
+
+
